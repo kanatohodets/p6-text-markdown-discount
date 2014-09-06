@@ -22,6 +22,7 @@ Artistic License 2.0
 ### CREDITS
 
 * The wonderful NativeCall module
+* moritz and geekosaur on freenode #perl6 (C wisdom)
 * Discount
 
 ### SEE ALSO

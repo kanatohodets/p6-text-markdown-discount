@@ -9,9 +9,9 @@ my class StringBuf is repr('CStruct') {
     has Str $.text;
 }
 
-sub mkd_string(Str, int, int) returns MMIOT is native("libmarkdown") { * }
-sub mkd_compile(MMIOT, int) returns int is native("libmarkdown") { * }
-sub mkd_document(MMIOT, StringBuf) returns int is native("libmarkdown") { * }
+sub mkd_string(Str, int, int) returns MMIOT is native("libmarkdown") { ... }
+sub mkd_compile(MMIOT, int) returns int is native("libmarkdown") { ... }
+sub mkd_document(MMIOT, StringBuf) returns int is native("libmarkdown") { ... }
 
 sub markdown-to-html(Str $markdown) is export {
     my $doc = mkd_string($markdown, $markdown.chars, 0);
