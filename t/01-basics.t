@@ -7,7 +7,7 @@ is markdown-to-html("_BLORG_"), '<p><em>BLORG</em></p>', "emphasized paragraph, 
 is markdown-to-html("__BLORG__"), '<p><strong>BLORG</strong></p>', "strong paragraph, simple interface";
 is markdown-to-html("[foo](www.google.com)"), '<p><a href="www.google.com">foo</a></p>', "linkify, simple interface";
 
-is markdown-to-html("[foo](www.google.com)", :flags<no-links>), '<p>[foo](www.google.com)</p>', "no-links flag, simple interface";
+is markdown-to-html("[foo](www.google.com)", <no-links>), '<p>[foo](www.google.com)</p>', "no-links flag, simple interface";
 
 my $simple-doc = MMIOT.new("_BLORG_");
 is $simple-doc.html, '<p><em>BLORG</em></p>', "emphasized paragraph, OO interface";

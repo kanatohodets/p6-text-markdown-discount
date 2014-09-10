@@ -7,13 +7,25 @@ Note that Discount must be compiled as a shared lib (`./configure.sh --shared` i
 ### SYNOPSIS
 
     use Text::Markdown::Discount
+
+    # simple API
     my $markdown = "_italicized_";
     my $html = markdown-to-html $markdown;
     # '<p><em>italicized</em><p>'
 
+    # OO API
+    my $markdown = "% Discount and Perl 6 \n% Camelia \n% A few hours ago \n__it is great!__";
+    my $doc = MMIOT.new($markdown);
+    # $doc.gist == $doc.html == '<p><strong>it is great!</strong><p>'
+    say $doc.title;
+    # "Discount and Perl 6"
+
+    # using flags
     my $scary-link = "[the goog](google.com)";
-    my $html-sans-link = markdown-to-html $scary-link, :flags<no-links>;
-    # '<p>[the goog](google.com)</p>'
+    my $html-sans-link = markdown-to-html $scary-link, <no-links>;
+    # or
+    my $sanitized-doc = MMIOT.new($scary-link, <no-links>);
+    # $html == $sanitized-doc.html == '<p>[the goog](google.com)</p>'
 
 ### DISCOUNT FLAGS
 
@@ -43,9 +55,12 @@ Discount accepts a large number of flags to control the parsing/compiling proces
     extra-footnote
     no-style
 
+### WHAT ON EARTH IS 'MMIOT'?
+
+The name of the Discount document object: "Magical Markdown IO Thing".
+
 ### TODO
 
-0. expose more of discount's API (table of contents, header access, style functions, etc.)
 1. more tests
 
 ### LICENSE

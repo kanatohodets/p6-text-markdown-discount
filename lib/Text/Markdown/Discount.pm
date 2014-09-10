@@ -93,12 +93,7 @@ class MMIOT is repr('CPointer') {
     method date () { mkd_doc_date(self) or '' }
 }
 
-multi sub markdown-to-html (Str $markdown, Str :flags($flag) = '') is export {
-    my $doc = MMIOT.new($markdown, $flag);
-    return $doc.html;
-}
-
-multi markdown-to-html (Str $markdown, :@flags = ()) is export {
+sub markdown-to-html (Str $markdown, *@flags) is export {
     my $doc = MMIOT.new($markdown, @flags);
     return $doc.html;
 }
