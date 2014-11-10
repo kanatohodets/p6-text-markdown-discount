@@ -20,3 +20,5 @@ my $doc-with-header = MMIOT.new($text-with-header);
 is $doc-with-header.title, "Parsing Markdown with Discount and Perl 6", "document title";
 is $doc-with-header.author, "Camelia", "document author";
 is $doc-with-header.date, "September, 2014", "document date";
+
+done;
